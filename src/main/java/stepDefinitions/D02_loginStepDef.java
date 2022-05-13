@@ -27,7 +27,7 @@ public class D02_loginStepDef {
 
 
     }
-    @When("^user enter \"(.*)\" and \"(.*)\"$")
+    @When("^user navigate to login page and enter email \"(.*)\" password \"(.*)\"$")
     public void enterValidCredentials(String username,String password)
     {
         login.loginSteps(username, password);

@@ -44,6 +44,5 @@ public class P02_login {
         usernameElementPOM().clear();
         usernameElementPOM().sendKeys(username);
         passElementPOM().sendKeys(password);
-          //passElementPOM().sendKeys(Keys.ENTER);
     }
 }
