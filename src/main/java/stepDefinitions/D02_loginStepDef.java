@@ -28,9 +28,9 @@ public class D02_loginStepDef {
 
     }
     @When("^user navigate to login page and enter email \"(.*)\" password \"(.*)\"$")
-    public void enterValidCredentials(String username,String password)
+    public void enterValidCredentials(String email,String password)
     {
-        login.loginSteps(username, password);
+        login.loginSteps(email, password);
 
     }
     @And("user click on login button")
@@ -41,21 +41,21 @@ public class D02_loginStepDef {
     @Then("user log in successfully and redirected to homepage")
     public void successLogin() throws InterruptedException {
 
-      Assert.assertTrue(login.logoutBTN().isDisplayed());
+        Assert.assertTrue(login.logoutBTN().isDisplayed());
     }
     @Then("error message login was unsuccessful")
     public void error_login() throws InterruptedException {
-         String er ="Login was unsuccessful. Please correct the errors and try again.\nNo customer account found";
+        String er ="Login was unsuccessful. Please correct the errors and try again.\nNo customer account found";
         String ar = login.flashMsgFailLogin().getText();
         System.out.println(ar);
         Assert.assertEquals(ar.contains(er),true);
-      //  Assert.assertTrue(ar.contains(er));
+        //  Assert.assertTrue(ar.contains(er));
         Thread.sleep(2000);
         driver.quit();
     }
     @Then("error message wrong email")
     public void wrong_Email() throws InterruptedException {
-         String er ="Wrong email";
+        String er ="Wrong email";
         String ar = login.flashMsgWrongEmail().getText();
         System.out.println(ar);
 

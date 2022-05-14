@@ -39,10 +39,10 @@ public class P02_login {
         return this.driver.findElement(By.className("ico-logout"));
     }
 
-    public void loginSteps(String username , String password){
+    public void loginSteps(String email , String password){
         loginBTN().click();
         usernameElementPOM().clear();
-        usernameElementPOM().sendKeys(username);
+        usernameElementPOM().sendKeys(email);
         passElementPOM().sendKeys(password);
     }
 }
