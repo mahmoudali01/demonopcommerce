@@ -14,10 +14,17 @@ public class P03_homePage {
 
     public WebElement currencyDropDownListPOM(){return this.driver.findElement(By.id("customerCurrency"));}
    public WebElement pricePOM(){return this.driver.findElement(By.className("prices"));}
-//  public WebElement pricePOM(){return this.driver.findElement(By.className("price actual-price"));}
-
     public WebElement continueButtonPOM(){return this.driver.findElement(By.className("buttons"));}
-//   public WebElement continueButtonPOM(){return this.driver.findElement(By.className("button-1 register-continue-button"));}
+    public WebElement computersCategoryPOM(){return this.driver.findElement(By.cssSelector("a[href=\"/computers\"]"));}
+    public WebElement electronicsCategoryPOM(){return this.driver.findElement(By.cssSelector("a[href=\"/electronics\"]"));}
+    public WebElement apparelCategoryPOM(){return this.driver.findElement(By.cssSelector("a[href=\"/apparel\"]"));}
+    public WebElement dDownloadsCategoryPOM(){return this.driver.findElement(By.cssSelector("a[href=\"/digital-downloads\"]"));}
+    public WebElement booksCategoryPOM(){return this.driver.findElement(By.cssSelector("a[href=\"/books\"]"));}
+    public WebElement jewelryCategoryPOM(){return this.driver.findElement(By.cssSelector("a[href=\"/jewelry\"]"));}
+    public WebElement giftCategoryPOM(){return this.driver.findElement(By.cssSelector("a[href=\"/gift-cards\"]"));}
+
+
+
 
 
 

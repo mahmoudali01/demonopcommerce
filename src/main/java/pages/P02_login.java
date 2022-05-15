@@ -30,7 +30,7 @@ public class P02_login {
         return this.driver.findElement(By.className("message-error"));
     }
 
-    public WebElement loginBTN(){
+    public WebElement loginMenuBTN(){
 
         return this.driver.findElement(By.className("ico-login"));
     }
@@ -40,7 +40,7 @@ public class P02_login {
     }
 
     public void loginSteps(String email , String password){
-        loginBTN().click();
+        loginMenuBTN().click();
         usernameElementPOM().clear();
         usernameElementPOM().sendKeys(email);
         passElementPOM().sendKeys(password);

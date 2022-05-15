@@ -20,7 +20,7 @@ public class D03_currenciesStepDef {
     P03_homePage page;
 
     @Given("user open browser then navigate to home page")
-    public void userNavigationToLoginPage() throws InterruptedException {
+    public void userNavigationToHomePage() throws InterruptedException {
         String chromePath = System.getProperty("user.dir") + "\\src\\main\\resources\\chromedriver.exe";
         System.setProperty("webdriver.chrome.driver", chromePath);
         driver = new ChromeDriver();

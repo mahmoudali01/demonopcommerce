@@ -15,7 +15,7 @@ public class D01_registerStepDef {
     WebDriver driver = null;
     P01_register register;
     @Given("user open browser and navigates to home page for registration")
-    public void userNavigationToLoginPage() throws InterruptedException {
+    public void userNavigationToHomePage() throws InterruptedException {
         String chromePath = System.getProperty("user.dir") + "\\src\\main\\resources\\chromedriver.exe";
         System.setProperty("webdriver.chrome.driver", chromePath);
         driver = new ChromeDriver();

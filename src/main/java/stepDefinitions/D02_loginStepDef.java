@@ -15,7 +15,7 @@ public class D02_loginStepDef {
     P02_login login;
 
     @Given("user open browser and navigates to home page")
-    public void userNavigationToLoginPage() throws InterruptedException {
+    public void userNavigationToHomePage() throws InterruptedException {
         String chromePath = System.getProperty("user.dir") + "\\src\\main\\resources\\chromedriver.exe";
         System.setProperty("webdriver.chrome.driver", chromePath);
         driver = new ChromeDriver();
