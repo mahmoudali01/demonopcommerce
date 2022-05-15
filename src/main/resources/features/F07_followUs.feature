@@ -2,11 +2,11 @@ Feature: user should click any icon to follow us and redirect fine to the select
   Scenario: user click on all follow us icons
     Given browser opened and redirected to home page
     When user click rss icon from the footer
-    Then user is redirected to rss
+    Then user is redirected to rss then close
     When user click facebook icon from the footer
-    Then user is redirected to facebook
+    Then user is redirected to facebook then close
     When user click twitter icon from the footer
-    Then user is redirected to twitter
+    Then user is redirected to twitter then close
     When user click youtube icon from the footer
-    Then user is redirected to youtube
+    Then user is redirected to youtube then quit
 

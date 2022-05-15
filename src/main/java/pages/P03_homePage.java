@@ -29,12 +29,7 @@ public class P03_homePage {
     public WebElement noSearchResultPom(){return this.driver.findElement(By.className("no-result"));}
     public WebElement sliderControlPom(){return this.driver.findElement(By.className("nivo-control"));}
     public WebElement shownSliderImagePom(){return this.driver.findElement(By.className("nivo-imageLink"));}
-//    public WebElement rssPom(){return this.driver.findElement(By.cssSelector("div[class=\"social\"] > a[href=\"/news/rss/1\"]"));}
-//
-//    public WebElement facebookPom(){return this.driver.findElement(By.cssSelector("div[class=\"social\"] > a[href=\"http://www.facebook.com/user/nopCommerce\"]"));}
-//
-//    public WebElement twitterPom(){return this.driver.findElement(By.cssSelector("div[class=\"social\"]  > a[href=\"http://www.twitter.com/user/nopCommerce\"]"));}
-//    public WebElement youtubePom(){return this.driver.findElement(By.cssSelector("div[class=\"social\"] > a[href=\"http://www.youtube.com/user/nopCommerce\"]"));}
+
 
 
     public WebElement rssPom(){return this.driver.findElement(By.cssSelector("li[class=\"rss\"] > a[href=\"/news/rss/1\"]"));}

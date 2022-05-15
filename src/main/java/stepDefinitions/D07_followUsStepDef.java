@@ -30,7 +30,7 @@ public class D07_followUsStepDef {
         Thread.sleep(1000);
 
     }
-    @Then("user is redirected to facebook")
+    @Then("user is redirected to facebook then close")
     public void redirectToFacebook() throws InterruptedException {
         String er = "https://www.facebook.com/nopCommerce";
         Thread.sleep(4000);
@@ -48,7 +48,7 @@ public class D07_followUsStepDef {
         Thread.sleep(1000);
 
     }
-    @Then("user is redirected to twitter")
+    @Then("user is redirected to twitter then close")
     public void redirectToTwitter() throws InterruptedException {
         String er = "https://twitter.com/nopCommerce";
         Thread.sleep(4000);
@@ -67,7 +67,7 @@ public class D07_followUsStepDef {
         Thread.sleep(1000);
 
     }
-    @Then("user is redirected to youtube")
+    @Then("user is redirected to youtube then quit")
     public void redireectToYoutube() throws InterruptedException {
         String er = "https://www.youtube.com/user/nopCommerce";
         Thread.sleep(4000);
@@ -87,7 +87,7 @@ public class D07_followUsStepDef {
         Thread.sleep(1000);
 
     }
-    @Then("user is redirected to rss")
+    @Then("user is redirected to rss then close")
     public void rssRedirect() throws InterruptedException {
         String ar = driver.getCurrentUrl();
         Thread.sleep(3000);
