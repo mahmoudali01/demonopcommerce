@@ -102,7 +102,7 @@ public class D05_hoverCategoriesStepDef {
     public void clickRegisterMenuBTN() throws InterruptedException {
         register.registerMenuBTN().sendKeys(Keys.ENTER);
     }
-    @And("^fill registration form with \"(.*)\" \"(.*)\" \"(.*)\" \"(.*)\" \"(.*)\"$")
+    @And("^fill  form with \"(.*)\" \"(.*)\" \"(.*)\" \"(.*)\" \"(.*)\"$")
     public void register(String fname , String lname ,String email , String password ,String confirm) throws InterruptedException {
         register.regisrationSteps(fname, lname, email, password, confirm);
         Thread.sleep(2000);
