@@ -27,6 +27,10 @@ public class P03_homePage {
     public WebElement giftCategoryPOM(){return this.driver.findElement(By.cssSelector("a[href=\"/gift-cards\"]"));}
     public WebElement appleProductPom(){return this.driver.findElement(By.className("product-title"));}
     public WebElement noSearchResultPom(){return this.driver.findElement(By.className("no-result"));}
+    public WebElement sliderControlPom(){return this.driver.findElement(By.className("nivo-control"));}
+    public WebElement shownSliderImagePom(){return this.driver.findElement(By.className("nivo-imageLink"));}
+    //public WebElement currentImagePom(){return this.driver.findElement(By.cssSelector("#pubCarousel li a img"));}
+
 
 
    public void searchProduct(String id){
