@@ -9,12 +9,27 @@ public class P05_shoppingCart {
     public P05_shoppingCart(WebDriver driver) {
         this.driver = driver;
     }
-    public WebElement firstFeaturedProductPOM(){
-        return this.driver.findElement(By.cssSelector("h2[class=\"product-title\"] > a[href=\"/build-your-own-computer\"]"));
+//    public WebElement locateProductPOM(String href){
+//        return this.driver.findElement(By.cssSelector("h2[class=\"product-title\"] > a[href="+href+"]"));
+//    }
+        public WebElement locateProductPOM(String name){
+        return this.driver.findElement(By.linkText(name));
+        }
+//    public WebElement locateShoppingCartProductItemPOM(String name){
+//        return this.driver.findElement(By.linkText(name));
+//    }
+    public WebElement cartCountPOM(){
+       return this.driver.findElement(By.className("cart-qty"));
     }
-    public WebElement firstCategoryProductPOM(){
-        return this.driver.findElement(By.cssSelector("h2[class=\"product-title\"] > a[href=\"/if-you-wait-donation\"]"));
+
+    public WebElement flashProductAddedPOM(){
+        return this.driver.findElement(By.cssSelector("div[id=\"bar-notification\"] > p[class=\"content\"]"));
+       // return this.driver.findElement(By.className("content"));
+
     }
+//    public WebElement firstCategoryProductPOM(){
+//        return this.driver.findElement(By.cssSelector("h2[class=\"product-title\"] > a[href=\"/if-you-wait-donation\"]"));
+//    }
 
     public WebElement clickedProductAddToCartBTNPOM(){
 
