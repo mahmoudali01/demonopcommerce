@@ -8,7 +8,11 @@ import org.junit.runner.RunWith;
       features = "src\\main\\resources\\features",
         glue = "stepDefinitions",
         tags = "@regression",
-        plugin = {"json:target/cucumber.json"}
+        plugin = {"json:target/cucumber.json",
+                "html:target/reports/emailable-report.html",
+
+        }
+
 )
 public class TestRunner {
 }

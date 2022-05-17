@@ -22,7 +22,7 @@ Feature: user should be able to search product by name or SKU
 
   Scenario: newly registered can search product
     When choose register from header
-    And register "mahmoud" "ali" "mahmoud1@aalli.com" "123456" "123456"
+    And register "mahmoud" "ali" "mahmoud1@aali.com" "123456" "123456"
     And  register and continue pressed
     When user enter invalid product name as "bla bla"
     Then user is redirected to a page with no products
@@ -43,7 +43,7 @@ Feature: user should be able to search product by name or SKU
 
   Scenario: authenticated can search product
     When choose login from header
-    And  login  "mahmoud1@aalli.com" "123456"
+    And  login  "mahmoud1@aali.com" "123456"
     And  login pressed
     When user enter invalid product name as "bla bla"
     Then user is redirected to a page with no products

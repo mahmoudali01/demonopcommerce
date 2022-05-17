@@ -8,14 +8,14 @@ Background:
 
   Scenario: newly registered user hover all categories then select computers
     When user click on register button from header menu
-    And fill registration form with "mahmoud" "ali" "mahmoud@aliii1.com" "123456" "123456"
+    And fill registration form with "mahmoud" "ali" "mahmoud@al1.com" "123456" "123456"
     And click REGISTER then click continue
     Then user hover all categories
     And click on all menu items
 
   Scenario: authenticated user hover all categories then select computers
     When user click on login button from header menu
-    And fill login form with "mahmoud@aliii1.com" "123456"
+    And fill login form with "mahmoud@al1.com" "123456"
     And  click Login
     Then user hover all categories
     And click on all menu items

@@ -20,10 +20,10 @@ Feature: new user should register to the website successfully
     And  click REGISTER
     Then  error confirm password don't match the password
   Scenario: user enter valid information
-    When user navigate to register page and enter first name "mahmoud" last name "ali" email "mahmoudali@ex.com" password "password" confirm pass "password"
+    When user navigate to register page and enter first name "mahmoud" last name "ali" email "mahmoudali@example.com" password "password" confirm pass "password"
     And  click REGISTER
     Then  registered successfully then click on logout
   Scenario: user enter already existing email
-    When user navigate to register page and enter first name "mahmoud" last name "ali" email "mahmoudali@ex.com" password "123456" confirm pass "123456"
+    When user navigate to register page and enter first name "mahmoud" last name "ali" email "mahmoudali@example.com" password "123456" confirm pass "123456"
     And  click REGISTER
     Then error already registered email
