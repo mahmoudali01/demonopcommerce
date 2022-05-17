@@ -26,19 +26,31 @@ WebDriver driver = null;
 }
  @When("^user click slider control \"(.*)\"$")
     public void enterSliderController(String num) throws InterruptedException {
-     String er = page.inactiveSliderControlPom(num).getText();
-     page.inactiveSliderControlPom(num).click();
-     Thread.sleep(3000);
+     String er = page.selectedSliderControlPom(num).getText();
+     System.out.println(er);
+     page.selectedSliderControlPom(num).click();
+     Thread.sleep(200);
 
  }
    @Then("^user is switched to slider image \"(.*)\"$")
     public void switchSlider(String sliderImgNum){
-//     String actual = page.activeSliderControlPom().getText();
-//       Assert.assertEquals(actual.equals(sliderNum),true);
-    //   String er = "https://demo.nopcommerce.com/images/thumbs/0000079_banner_1.jpg";
+       String test = page.shownImgPom().getAttribute("src");
+       System.out.println(test);
        String ar = page.firstSliderImagePom().getAttribute("src");
      System.out.println(ar);
-      Assert.assertEquals(ar.equals(sliderImgNum),true);
+      Assert.assertEquals(test.equals(ar),true);
+   }
+//    @Then("^user is switched to second slider image \"(.*)\"$")
+//    public void switchsecondSlider(String sliderImgNum){
+//        String test = page.shownImgPom().getAttribute("src");
+//        System.out.println(test);
+//        String ar = page.secondSliderImagePom().getAttribute("src");
+//        System.out.println(ar);
+//        Assert.assertEquals(test.equals(sliderImgNum),true);
+//    }
+   @Then("quitt")
+    public void quit(){
+    driver.quit();
    }
 
 //    @When("user click slider image")

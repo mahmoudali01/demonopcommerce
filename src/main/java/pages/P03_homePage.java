@@ -31,15 +31,18 @@ public class P03_homePage {
 //    public WebElement sliderControlPom(){return this.driver.findElement(By.className("nivo-control"));}
 //    public WebElement sliderControlNumPom(String sliderNum){return this.driver.findElement(By.linkText(sliderNum));}
 //  public WebElement inactiveSliderControlPom(){return this.driver.findElement(By.className("nivo-control"));}
-public WebElement inactiveSliderControlPom(String sliderNum){return this.driver.findElement(By.linkText(sliderNum));}
+public WebElement selectedSliderControlPom(String sliderNum){return this.driver.findElement(By.linkText(sliderNum));}
 
-    public WebElement activeSliderControlPom(){return this.driver.findElement(By.className("nivo-control active"));}
+    public WebElement activeSliderControlPom(){return this.driver.findElement(By.className("nivo-control"));}
 
 //   public WebElement shownSliderImagePom(){return this.driver.findElement(By.className("nivo-slider"));}
    //public WebElement shownSliderImagePom(){return this.driver.findElement(By.className("nivo-imageLink"));}
     public WebElement firstSliderImagePom(){return this.driver.findElement(By.cssSelector("img[src=\"https://demo.nopcommerce.com/images/thumbs/0000079_banner_1.jpg\"]"));}
 
     public WebElement secondSliderImagePom(){return this.driver.findElement(By.cssSelector("img[src=\"https://demo.nopcommerce.com/images/thumbs/0000080_banner_2.jpg\"]"));}
+
+    public WebElement shownImgPom(){return this.driver.findElement(By.cssSelector("img[class=\"nivo-main-image\"]"));}
+
 
     public WebElement searchedProductPom(String searched){return this.driver.findElement(By.linkText(searched));}
     public WebElement locateProducts(String name){
