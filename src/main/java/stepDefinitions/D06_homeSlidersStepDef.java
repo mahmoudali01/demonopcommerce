@@ -5,6 +5,7 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.Assert;
 import pages.P01_register;
 import pages.P02_login;
 import pages.P03_homePage;
@@ -23,23 +24,38 @@ WebDriver driver = null;
     page =new P03_homePage(driver);
     Thread.sleep(1000);
 }
- @When("user enter slider control")
-    public void enterSliderController() throws InterruptedException {
-    page.sliderControlPom().click();
+ @When("^user click inactive slider control \"(.*)\"$")
+    public void enterSliderController(String num) throws InterruptedException {
+     String er = page.inactiveSliderControlPom(num).getText();
+     System.out.println(er);
+
+     page.inactiveSliderControlPom(num).click();
+     Thread.sleep(500);
+//     String ar = page.activeSliderControlPom().getText();
+//     System.out.println(ar);
+//     Assert.assertEquals(ar.equals(er),true);
      Thread.sleep(1000);
 
  }
-//   @Then("user is switched to that slider")
-//    public void switchSlider(){
-//     page.sliderControlPom().click();
+//   @Then("^user is switched to slider number \"(.*)\"$")
+//    public void switchSlider(String sliderNum){
+//     String actual = page.selectedSliderControlPom().getText();
+//       Assert.assertEquals(actual.equals(sliderNum),true);
 //   }
-    @When("user enter the other slider control")
-    public void enterOtherSlider() throws InterruptedException {
-        page.sliderControlPom().click();
+    @When("^user click the other slider control \"(.*)\"$")
+    public void enterOtherSlider(String num) throws InterruptedException {
+        String er = page.inactiveSliderControlPom(num).getText();
+        System.out.println(er);
+
+        page.inactiveSliderControlPom(num).click();
+        Thread.sleep(500);
+//        String ar = page.activeSliderControlPom().getText();
+//        System.out.println(ar);
+//        Assert.assertEquals(ar.equals(er),true);
         Thread.sleep(1000);
 
     }
-    @When("user click slider")
+    @When("user click slider image")
     public void clickSlider()  {
         page.shownSliderImagePom().click();
 

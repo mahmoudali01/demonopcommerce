@@ -28,14 +28,20 @@ public class P03_homePage {
     public WebElement giftCategoryPOM(){return this.driver.findElement(By.cssSelector("a[href=\"/gift-cards\"]"));}
    // public WebElement appleProductPom(){return this.driver.findElement(By.className("product-title"));}
     public WebElement noSearchResultPom(){return this.driver.findElement(By.className("no-result"));}
-    public WebElement sliderControlPom(){return this.driver.findElement(By.className("nivo-control"));}
-    public WebElement shownSliderImagePom(){return this.driver.findElement(By.className("nivo-imageLink"));}
+//    public WebElement sliderControlPom(){return this.driver.findElement(By.className("nivo-control"));}
+//    public WebElement sliderControlNumPom(String sliderNum){return this.driver.findElement(By.linkText(sliderNum));}
+//  public WebElement inactiveSliderControlPom(){return this.driver.findElement(By.className("nivo-control"));}
+public WebElement inactiveSliderControlPom(String sliderNum){return this.driver.findElement(By.linkText(sliderNum));}
+
+    public WebElement activeSliderControlPom(){return this.driver.findElement(By.className("nivo-control active"));}
+
+//   public WebElement shownSliderImagePom(){return this.driver.findElement(By.className("nivo-slider"));}
+   public WebElement shownSliderImagePom(){return this.driver.findElement(By.cssSelector("a[style=\"display : block;\"]"));}
 
      public WebElement searchedProductPom(String searched){return this.driver.findElement(By.linkText(searched));}
     public WebElement locateProducts(String name){
         return this.driver.findElement(By.linkText(name));
     }
-
     public WebElement cartCountPOM(){
         return this.driver.findElement(By.className("cart-qty"));
     }

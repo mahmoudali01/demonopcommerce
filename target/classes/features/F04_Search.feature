@@ -1,3 +1,4 @@
+@regression
 Feature: user should be able to search product by name or SKU
   Background:
     Given open browser and go to home page
