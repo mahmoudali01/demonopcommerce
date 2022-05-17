@@ -12,15 +12,12 @@ public class P05_shoppingCart {
 //    public WebElement locateProductPOM(String href){
 //        return this.driver.findElement(By.cssSelector("h2[class=\"product-title\"] > a[href="+href+"]"));
 //    }
-        public WebElement locateProductPOM(String name){
-        return this.driver.findElement(By.linkText(name));
-        }
+      //  public WebElement locateProductPOM(String name){
+//        return this.driver.findElement(By.linkText(name));
+//        }
 //    public WebElement locateShoppingCartProductItemPOM(String name){
 //        return this.driver.findElement(By.linkText(name));
 //    }
-    public WebElement cartCountPOM(){
-       return this.driver.findElement(By.className("cart-qty"));
-    }
 
     public WebElement flashProductAddedPOM(){
         return this.driver.findElement(By.cssSelector("div[id=\"bar-notification\"] > p[class=\"content\"]"));

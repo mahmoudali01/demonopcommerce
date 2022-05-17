@@ -1,3 +1,4 @@
+@regression
 Feature: user should click any icon to follow us and redirect fine to the selected platform
   Scenario: user click on all follow us icons
     Given browser opened and redirected to home page

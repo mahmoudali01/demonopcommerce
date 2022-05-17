@@ -31,7 +31,7 @@ public class D04_searchStepDef {
         register = new P01_register(driver);
         Thread.sleep(1000);
     }
-    @When("^user enter invalid product number as \"(.*)\"$")
+    @When("^user enter invalid product name as \"(.*)\"$")
     public void searchInvalidProduct(String name) throws InterruptedException {
         page.searchProduct(name);
         Thread.sleep(2000);
@@ -43,22 +43,24 @@ public class D04_searchStepDef {
         System.out.println(ar);
 
         Assert.assertEquals(ar.contains(er),true);
+//        driver.navigate().to("https://demo.nopcommerce.com/");
+
         Thread.sleep(2000);
     }
 
     @When("^enter valid product full name as \"(.*)\" and click enter$")
     public void searchProduct(String name) throws InterruptedException {
-       page.searchProduct(name);
-       Thread.sleep(2000);
-    }
-    @Then("user is redirected to a page has the searched product")
-    public void checkTheSearchedProductReturned() throws InterruptedException {
-        String er = "Apple MacBook Pro 13-inch";
-        String ar = page.appleProductPom().getText();
-        System.out.println(ar);
-        Assert.assertEquals(ar.contains(er),true);
+        page.searchProduct(name);
         Thread.sleep(2000);
-        driver.quit();
+    }
+    @Then("^user is redirected to a page contains \"(.*)\" product$")
+    public void checkTheSearchedProductReturned(String searched) throws InterruptedException {
+        String er = "Apple MacBook Pro 13-inch";
+        String ar = page.searchedProductPom(searched).getText();
+        System.out.println(ar);
+        Assert.assertEquals(ar.contains(searched),true);
+        Thread.sleep(2000);
+
     }
     @When("^enter valid product partial name as \"(.*)\" and click enter$")
     public void searchProductPartial(String name) throws InterruptedException {
@@ -100,6 +102,14 @@ public class D04_searchStepDef {
     @And("login pressed")
     public void clickLoginBTN() throws InterruptedException {
         login.passElementPOM().sendKeys(Keys.ENTER);
+    }
+    @And("roll back to home")
+    public void rollBack(){
+        driver.navigate().to("https://demo.nopcommerce.com/");
+    }
+    @And("quit the browser")
+    public void quitBrowser(){
+        driver.quit();
     }
 
 }

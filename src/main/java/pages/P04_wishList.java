@@ -10,9 +10,6 @@ public class P04_wishList {
         this.driver = driver;
     }
 
-    public WebElement locateWishlistItems(String name){
-        return this.driver.findElement(By.linkText(name));
-    }
 
 
     public WebElement addToWishlistBTNPOM(){

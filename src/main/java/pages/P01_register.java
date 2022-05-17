@@ -67,15 +67,25 @@ public class P01_register {
         return this.driver.findElement(By.className("message-error"));
     }
 
-    public void regisrationSteps(String fname , String lname ,String email , String password ,String confirm){
+    public void regisrationSteps(String fname , String lname ,String email , String password ,String confirm) throws InterruptedException {
         registerMenuBTN().click();
         fnameElementPOM().clear();
         lnameElementPOM().clear();
         emailElementPOM().clear();
         fnameElementPOM().sendKeys(fname);
+        Thread.sleep(500);
+
         lnameElementPOM().sendKeys(lname);
+        Thread.sleep(500);
+
         emailElementPOM().sendKeys(email);
+        Thread.sleep(500);
+
         passElementPOM().sendKeys(password);
+        Thread.sleep(500);
+
         confirmPassElementPOM().sendKeys(confirm);
+        Thread.sleep(500);
+
     }
 }

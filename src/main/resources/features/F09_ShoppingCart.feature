@@ -1,3 +1,4 @@
+@regression
 Feature: user can add product to cart successfully
   Scenario: user add product to cart from featured products and product categories
     Given browser navigated to home page

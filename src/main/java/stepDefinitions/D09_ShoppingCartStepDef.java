@@ -130,8 +130,8 @@ package stepDefinitions;
 public class D09_ShoppingCartStepDef {
   P03_homePage page;
   P05_shoppingCart cart;
+  static int  expected =0;
   WebDriver driver = null;
-  public static String count = "";
   @Given("browser navigated to home page")
   public void navigationToHome() throws InterruptedException {
     String chromePath = System.getProperty("user.dir") + "\\src\\main\\resources\\chromedriver.exe";
@@ -146,11 +146,11 @@ public class D09_ShoppingCartStepDef {
   @When("^user scroll to featured products and click \"(.*)\" product$")
   public void clickFeaturedFirstProduct(String productName) throws InterruptedException {
     //cart.firstFeaturedProductPOM().click();
-    String er = cart.locateProductPOM(productName).getAttribute("href");
-    cart.locateProductPOM(productName).click();
+    String er = page.locateProducts(productName).getAttribute("href");
+    page.locateProducts(productName).click();
     String ar = driver.getCurrentUrl();
     Assert.assertEquals(ar.equals(er),true);
-    Thread.sleep(1500);
+    Thread.sleep(500);
   }
   //  @Then("user is redirected to that product details page")
 //  public void redirectedToDetailsPage() throws InterruptedException {
@@ -174,23 +174,30 @@ public class D09_ShoppingCartStepDef {
     Thread.sleep(1500);
 
     cart.clickedProductAddToCartBTNPOM().click();
+//    String count=page.cartCountPOM().getText();
+//    char[] ch = count.toCharArray();
+//    int  actual =Integer.parseInt(String.valueOf(ch[1]));
+//    Assert.assertEquals(actual,1);
+    Thread.sleep(500);
+
   }
   @And("user click on add to cart button from category product details page")
   public void categoryProductDetailsPageAddCartBTN() throws InterruptedException {
     cart.clickedProductAddToCartBTNPOM().click();
-    //    String er = "The product has been added to your ";
-//     String ar = cart.flashProductAddedPOM().getText();
-//    System.out.println(ar);
-//     Assert.assertEquals(ar.contains(er),true);
+//    String count=page.cartCountPOM().getText();
+//    char[] ch = count.toCharArray();
+//    int  actual =Integer.parseInt(String.valueOf(ch[1]));
+//    Assert.assertEquals(actual,2);
     Thread.sleep(500);
 
   }
   @Then("navigate to home page")
   public void addedSuccessfully() throws InterruptedException {
-//    String er = "The product has been added to your ";
-//     String ar = cart.flashProductAddedPOM().getText();
-//    System.out.println(ar);
-//     Assert.assertEquals(ar.contains(er),true);
+//    expected++;
+//    String count=page.cartCountPOM().getText();
+//    char[] ch = count.toCharArray();
+//    int  actual =Integer.parseInt(String.valueOf(ch[1]));
+//    Assert.assertEquals(actual,expected);
     driver.navigate().to("https://demo.nopcommerce.com/");
     Thread.sleep(1500);
   }
@@ -202,8 +209,8 @@ public class D09_ShoppingCartStepDef {
   public void downloadsFirstProduct(String productName) throws InterruptedException {
     // cart.firstCategoryProductPOM().click();
     //cart.locateProductPOM(productName).click();
-    String er = cart.locateProductPOM(productName).getAttribute("href");
-    cart.locateProductPOM(productName).click();
+    String er = page.locateProducts(productName).getAttribute("href");
+    page.locateProducts(productName).click();
     String ar = driver.getCurrentUrl();
     Assert.assertEquals(ar.equals(er),true);
     Thread.sleep(1500);
@@ -215,8 +222,8 @@ public class D09_ShoppingCartStepDef {
   }
   @And("^check \"(.*)\" and \"(.*)\"  products are added and quit$")
   public void checkAddedProductsAndQuit(String product1, String product2) throws InterruptedException {
-    String ar1 = cart.locateProductPOM(product1).getText();
-    String ar2 =  cart.locateProductPOM(product2).getText();
+    String ar1 = page.locateProducts(product1).getText();
+    String ar2 =  page.locateProducts(product2).getText();
     Assert.assertEquals(ar1.equals(product1),true);
     Assert.assertEquals(ar2.equals(product2),true);
     Thread.sleep(1000);

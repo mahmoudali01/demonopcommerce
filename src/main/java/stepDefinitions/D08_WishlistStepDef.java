@@ -33,8 +33,8 @@ public class D08_WishlistStepDef {
     @When("^user scroll down to featured products and click \"(.*)\" product$")
     public void clickFeaturedProduct(String productName) throws InterruptedException {
         //cart.firstFeaturedProductPOM().click();
-        String er = cart.locateProductPOM(productName).getAttribute("href");
-        cart.locateProductPOM(productName).click();
+        String er = page.locateProducts(productName).getAttribute("href");
+        page.locateProducts(productName).click();
         String ar = driver.getCurrentUrl();
         Assert.assertEquals(ar.equals(er),true);
         Thread.sleep(1500);
@@ -80,8 +80,8 @@ public class D08_WishlistStepDef {
     public void downloadsChoosenProduct(String productName) throws InterruptedException {
         // cart.firstCategoryProductPOM().click();
         //cart.locateProductPOM(productName).click();
-        String er = cart.locateProductPOM(productName).getAttribute("href");
-        cart.locateProductPOM(productName).click();
+        String er =  page.locateProducts(productName).getAttribute("href");
+        page.locateProducts(productName).click();
         String ar = driver.getCurrentUrl();
         Assert.assertEquals(ar.equals(er),true);
         Thread.sleep(1500);
@@ -94,8 +94,8 @@ public class D08_WishlistStepDef {
     }
     @And("^check \"(.*)\" and \"(.*)\"  products are added to wish list and quit$")
     public void checkProductsAndQuit(String product1, String product2) throws InterruptedException {
-        String ar1 = wishlist.locateWishlistItems(product1).getText();
-        String ar2 =  wishlist.locateWishlistItems(product2).getText();
+        String ar1 = page.locateProducts(product1).getText();
+        String ar2 =  page.locateProducts(product2).getText();
         Assert.assertEquals(ar1.equals(product1),true);
         Assert.assertEquals(ar2.equals(product2),true);
         Thread.sleep(1000);

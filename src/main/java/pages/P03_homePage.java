@@ -1,11 +1,12 @@
+
 package pages;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+        import org.openqa.selenium.By;
+        import org.openqa.selenium.Keys;
+        import org.openqa.selenium.WebDriver;
+        import org.openqa.selenium.WebElement;
 
-import java.util.ArrayList;
+        import java.util.ArrayList;
 
 public class P03_homePage {
     private WebDriver driver;
@@ -14,7 +15,7 @@ public class P03_homePage {
     }
 
     public WebElement currencyDropDownListPOM(){return this.driver.findElement(By.id("customerCurrency"));}
-   public WebElement pricePOM(){return this.driver.findElement(By.className("prices"));}
+    public WebElement pricePOM(){return this.driver.findElement(By.className("prices"));}
     public WebElement searchPOM(){return this.driver.findElement(By.className("search-box-text"));}
 
     public WebElement continueButtonPOM(){return this.driver.findElement(By.className("buttons"));}
@@ -25,12 +26,22 @@ public class P03_homePage {
     public WebElement booksCategoryPOM(){return this.driver.findElement(By.cssSelector("a[href=\"/books\"]"));}
     public WebElement jewelryCategoryPOM(){return this.driver.findElement(By.cssSelector("a[href=\"/jewelry\"]"));}
     public WebElement giftCategoryPOM(){return this.driver.findElement(By.cssSelector("a[href=\"/gift-cards\"]"));}
-    public WebElement appleProductPom(){return this.driver.findElement(By.className("product-title"));}
+   // public WebElement appleProductPom(){return this.driver.findElement(By.className("product-title"));}
     public WebElement noSearchResultPom(){return this.driver.findElement(By.className("no-result"));}
     public WebElement sliderControlPom(){return this.driver.findElement(By.className("nivo-control"));}
     public WebElement shownSliderImagePom(){return this.driver.findElement(By.className("nivo-imageLink"));}
 
+     public WebElement searchedProductPom(String searched){return this.driver.findElement(By.linkText(searched));}
+    public WebElement locateProducts(String name){
+        return this.driver.findElement(By.linkText(name));
+    }
 
+    public WebElement cartCountPOM(){
+        return this.driver.findElement(By.className("cart-qty"));
+    }
+    public WebElement wishlistCountPOM(){
+        return this.driver.findElement(By.className("wishlist-qty"));
+    }
 
     public WebElement rssPom(){return this.driver.findElement(By.cssSelector("li[class=\"rss\"] > a[href=\"/news/rss/1\"]"));}
 
@@ -44,7 +55,7 @@ public class P03_homePage {
         searchPOM().clear();
         searchPOM().sendKeys(id);
         searchPOM().sendKeys(Keys.RETURN);
-   }
+    }
 
 
 }

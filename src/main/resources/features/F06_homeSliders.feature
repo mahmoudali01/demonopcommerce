@@ -1,3 +1,4 @@
+@regression
 Feature: user should be able to switch between sliders and click them
 
   Scenario: user switch between sliders and click

@@ -28,8 +28,7 @@ public class D02_loginStepDef {
 
     }
     @When("^user navigate to login page and enter email \"(.*)\" password \"(.*)\"$")
-    public void enterValidCredentials(String email,String password)
-    {
+    public void enterValidCredentials(String email,String password) throws InterruptedException {
         login.loginSteps(email, password);
 
     }

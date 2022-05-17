@@ -39,10 +39,13 @@ public class P02_login {
         return this.driver.findElement(By.className("ico-logout"));
     }
 
-    public void loginSteps(String email , String password){
+    public void loginSteps(String email , String password) throws InterruptedException {
         loginMenuBTN().click();
         usernameElementPOM().clear();
         usernameElementPOM().sendKeys(email);
+        Thread.sleep(500);
         passElementPOM().sendKeys(password);
+        Thread.sleep(500);
+
     }
 }

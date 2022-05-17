@@ -28,8 +28,7 @@ public class D01_registerStepDef {
 
     }
     @When("^user navigate to register page and enter first name \"(.*)\" last name \"(.*)\" email \"(.*)\" password \"(.*)\" confirm pass \"(.*)\"$")
-    public void fillRegistrationForm(String fname , String lname ,String email , String password ,String confirm)
-    {
+    public void fillRegistrationForm(String fname , String lname ,String email , String password ,String confirm) throws InterruptedException {
         register.regisrationSteps(fname, lname,email,password,confirm);
 
     }

@@ -1,3 +1,4 @@
+@regression
 Feature: user can add product to wishlist successfully
   Scenario: user add product to wishlist from featured products and product categories
     Given browser open to home page
