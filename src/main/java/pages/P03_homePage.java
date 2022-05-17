@@ -36,9 +36,12 @@ public WebElement inactiveSliderControlPom(String sliderNum){return this.driver.
     public WebElement activeSliderControlPom(){return this.driver.findElement(By.className("nivo-control active"));}
 
 //   public WebElement shownSliderImagePom(){return this.driver.findElement(By.className("nivo-slider"));}
-   public WebElement shownSliderImagePom(){return this.driver.findElement(By.cssSelector("a[style=\"display : block;\"]"));}
+   //public WebElement shownSliderImagePom(){return this.driver.findElement(By.className("nivo-imageLink"));}
+    public WebElement firstSliderImagePom(){return this.driver.findElement(By.cssSelector("img[src=\"https://demo.nopcommerce.com/images/thumbs/0000079_banner_1.jpg\"]"));}
 
-     public WebElement searchedProductPom(String searched){return this.driver.findElement(By.linkText(searched));}
+    public WebElement secondSliderImagePom(){return this.driver.findElement(By.cssSelector("img[src=\"https://demo.nopcommerce.com/images/thumbs/0000080_banner_2.jpg\"]"));}
+
+    public WebElement searchedProductPom(String searched){return this.driver.findElement(By.linkText(searched));}
     public WebElement locateProducts(String name){
         return this.driver.findElement(By.linkText(name));
     }
