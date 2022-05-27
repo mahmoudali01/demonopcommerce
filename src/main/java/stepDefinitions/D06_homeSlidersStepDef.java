@@ -33,12 +33,11 @@ WebDriver driver = null;
 
  }
    @Then("^user is switched to slider image \"(.*)\"$")
-    public void switchSlider(String sliderImgNum){
-       String test = page.shownImgPom().getAttribute("src");
-       System.out.println(test);
-       String ar = page.firstSliderImagePom().getAttribute("src");
+    public void switchSlider(String sliderImg){
+
+       String ar = page.shownImgPom().getAttribute("src");
      System.out.println(ar);
-      Assert.assertEquals(test.equals(ar),true);
+      Assert.assertEquals(sliderImg.equals(ar),true);
    }
 //    @Then("^user is switched to second slider image \"(.*)\"$")
 //    public void switchsecondSlider(String sliderImgNum){
