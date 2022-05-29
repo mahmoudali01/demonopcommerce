@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<testsuite errors="0" failures="1" name="io.cucumber.core.plugin.JUnitFormatter" skipped="0" tests="23" time="451.869">
+    <testcase classname="new user should register to the website successfully" name="user enter no data" time="11.502">
+        <system-out><![CDATA[Given user open browser and navigates to home page for registration.........passed
+When user navigate to register page and enter first name "" last name "" email "" password "" confirm pass "".passed
+And click REGISTER..........................................................passed
+Then error message with the required fields.................................passed
+]]></system-out>
+    </testcase>
+    <testcase classname="new user should register to the website successfully" name="user enter wrong email" time="10.206">
+        <system-out><![CDATA[Given user open browser and navigates to home page for registration.........passed
+When user navigate to register page and enter first name "m" last name "m" email "m" password "123456" confirm pass "123456".passed
+And click REGISTER..........................................................passed
+Then wrong email message....................................................passed
+]]></system-out>
+    </testcase>
+    <testcase classname="new user should register to the website successfully" name="user enter password less than 6 characters" time="8.968">
+        <system-out><![CDATA[Given user open browser and navigates to home page for registration.........passed
+When user navigate to register page and enter first name "m" last name "m" email "m@m.m" password "123" confirm pass "123".passed
+And click REGISTER..........................................................passed
+Then error the password should be at least 6 characters.....................passed
+]]></system-out>
+    </testcase>
+    <testcase classname="new user should register to the website successfully" name="user enter confirm password don't match the password" time="8.856">
+        <system-out><![CDATA[Given user open browser and navigates to home page for registration.........passed
+When user navigate to register page and enter first name "m" last name "m" email "m@m.m" password "123456" confirm pass "7891011".passed
+And click REGISTER..........................................................passed
+Then error confirm password don't match the password........................passed
+]]></system-out>
+    </testcase>
+    <testcase classname="new user should register to the website successfully" name="user enter valid information" time="10.831">
+        <system-out><![CDATA[Given user open browser and navigates to home page for registration.........passed
+When user navigate to register page and enter first name "mahmoud" last name "ali" email "mahmoudali@example.com" password "password" confirm pass "password".passed
+And click REGISTER..........................................................passed
+Then registered successfully then click on logout...........................passed
+]]></system-out>
+    </testcase>
+    <testcase classname="new user should register to the website successfully" name="user enter already existing email" time="10.773">
+        <system-out><![CDATA[Given user open browser and navigates to home page for registration.........passed
+When user navigate to register page and enter first name "mahmoud" last name "ali" email "mahmoudali@example.com" password "123456" confirm pass "123456".passed
+And click REGISTER..........................................................passed
+Then error already registered email.........................................passed
+]]></system-out>
+    </testcase>
+    <testcase classname="user should be able to login successfully" name="user enter no data" time="8.63">
+        <system-out><![CDATA[Given user open browser and navigates to home page..........................passed
+When user navigate to login page and enter email "" password "".............passed
+And user click on login button..............................................passed
+Then error message please enter email.......................................passed
+]]></system-out>
+    </testcase>
+    <testcase classname="user should be able to login successfully" name="user login with invalid email and password" time="8.865">
+        <system-out><![CDATA[Given user open browser and navigates to home page..........................passed
+When user navigate to login page and enter email "m@m.m" password "invalid".passed
+And user click on login button..............................................passed
+Then error message login was unsuccessful...................................passed
+]]></system-out>
+    </testcase>
+    <testcase classname="user should be able to login successfully" name="user enter invalid email format" time="8.326">
+        <system-out><![CDATA[Given user open browser and navigates to home page..........................passed
+When user navigate to login page and enter email "m" password ""............passed
+And user click on login button..............................................passed
+Then error message wrong email..............................................passed
+]]></system-out>
+    </testcase>
+    <testcase classname="user should be able to login successfully" name="user login with valid email and password" time="6.151">
+        <system-out><![CDATA[Given user open browser and navigates to home page..........................passed
+When user navigate to login page and enter email "mahmoudali@example.com" password "password".passed
+And user click on login button..............................................passed
+Then user log in successfully and redirected to homepage....................passed
+]]></system-out>
+    </testcase>
+    <testcase classname="user should be able to switch between currencies" name="unauthenticated user could switch between currencies" time="10.217">
+        <system-out><![CDATA[Given user open browser then navigate to home page..........................passed
+When user select "Euro" then the featured product prices is switched to Euro.passed
+And user select "US Dollar" then the featured product prices is switched US dollar.passed
+]]></system-out>
+    </testcase>
+    <testcase classname="user should be able to switch between currencies" name="new registered user could switch between currencies" time="16.056">
+        <system-out><![CDATA[Given user open browser then navigate to home page..........................passed
+And user click on register from top menu....................................passed
+And enter first name "mahmoud" last name "ali" email "mahmoudd@ali1.com" password "password" confirm pass "password".passed
+And press REGISTER..........................................................passed
+And user click on continue button...........................................passed
+When user select "Euro" then the featured product prices is switched to Euro.passed
+And user select "US Dollar" then the featured product prices is switched US dollar.passed
+]]></system-out>
+    </testcase>
+    <testcase classname="user should be able to switch between currencies" name="authenticated user could switch between currencies" time="14.591">
+        <system-out><![CDATA[Given user open browser then navigate to home page..........................passed
+And user click on login button then enter email "mahmoudd@ali1.com" password "password".passed
+And press login button......................................................passed
+When user select "Euro" then the featured product prices is switched to Euro.passed
+And user select "US Dollar" then the featured product prices is switched US dollar.passed
+]]></system-out>
+    </testcase>
+    <testcase classname="user should be able to search product by name or SKU" name="unauthenticated user can search products" time="28.141">
+        <system-out><![CDATA[Given open browser and go to home page......................................passed
+When user enter invalid product name as "bla bla"...........................passed
+Then user is redirected to a page with no products..........................passed
+And roll back to home.......................................................passed
+When enter valid product full name as "Apple MacBook Pro 13-inch" and click enter.passed
+Then user is redirected to a page contains "Apple MacBook Pro 13-inch" product.passed
+And roll back to home.......................................................passed
+When enter valid product partial name as "Apple" and click enter............passed
+Then user is redirected to a page contains "Apple MacBook Pro 13-inch" product.passed
+And roll back to home.......................................................passed
+When enter SKU: "AP_MBP_13" and click enter.................................passed
+Then user is redirected to a page contains "Apple MacBook Pro 13-inch" product.passed
+And quit the browser........................................................passed
+]]></system-out>
+    </testcase>
+    <testcase classname="user should be able to search product by name or SKU" name="newly registered can search product" time="33.941">
+        <system-out><![CDATA[Given open browser and go to home page......................................passed
+When choose register from header............................................passed
+And register "mahmoud" "ali" "mahmoud1@aali.com" "123456" "123456"..........passed
+And register and continue pressed...........................................passed
+When user enter invalid product name as "bla bla"...........................passed
+Then user is redirected to a page with no products..........................passed
+And roll back to home.......................................................passed
+When enter valid product full name as "Apple MacBook Pro 13-inch" and click enter.passed
+Then user is redirected to a page contains "Apple MacBook Pro 13-inch" product.passed
+And roll back to home.......................................................passed
+When enter valid product partial name as "Apple" and click enter............passed
+Then user is redirected to a page contains "Apple MacBook Pro 13-inch" product.passed
+And roll back to home.......................................................passed
+When enter SKU: "AP_MBP_13" and click enter.................................passed
+Then user is redirected to a page contains "Apple MacBook Pro 13-inch" product.passed
+And quit the browser........................................................passed
+]]></system-out>
+    </testcase>
+    <testcase classname="user should be able to search product by name or SKU" name="authenticated can search product" time="28.037">
+        <system-out><![CDATA[Given open browser and go to home page......................................passed
+When choose login from header...............................................passed
+And login  "mahmoud1@aali.com" "123456".....................................passed
+And login pressed...........................................................passed
+When user enter invalid product name as "bla bla"...........................passed
+Then user is redirected to a page with no products..........................passed
+When enter valid product full name as "Apple MacBook Pro 13-inch" and click enter.passed
+Then user is redirected to a page contains "Apple MacBook Pro 13-inch" product.passed
+When enter valid product partial name as "Apple" and click enter............passed
+Then user is redirected to a page contains "Apple MacBook Pro 13-inch" product.passed
+When enter SKU: "AP_MBP_13" and click enter.................................passed
+Then user is redirected to a page contains "Apple MacBook Pro 13-inch" product.passed
+And quit the browser........................................................passed
+]]></system-out>
+    </testcase>
+    <testcase classname="user should be able to hover different categories and select any of them" name="unauthenticated user hover all categories then select computers" time="40.343">
+        <system-out><![CDATA[Given browser is opened and navigated to home page..........................passed
+Then user hover all categories..............................................passed
+And click on all menu items.................................................passed
+]]></system-out>
+    </testcase>
+    <testcase classname="user should be able to hover different categories and select any of them" name="newly registered user hover all categories then select computers" time="41.988">
+        <system-out><![CDATA[Given browser is opened and navigated to home page..........................passed
+When user click on register button from header menu.........................passed
+And fill registration form with "mahmoud" "ali" "mahmoud@al1.com" "123456" "123456".passed
+And click REGISTER then click continue......................................passed
+Then user hover all categories..............................................passed
+And click on all menu items.................................................passed
+]]></system-out>
+    </testcase>
+    <testcase classname="user should be able to hover different categories and select any of them" name="authenticated user hover all categories then select computers" time="39.093">
+        <system-out><![CDATA[Given browser is opened and navigated to home page..........................passed
+When user click on login button from header menu............................passed
+And fill login form with "mahmoud@al1.com" "123456".........................passed
+And click Login.............................................................passed
+Then user hover all categories..............................................passed
+And click on all menu items.................................................passed
+]]></system-out>
+    </testcase>
+    <testcase classname="user should be able to switch between sliders" name="user switch between sliders and click" time="5.408">
+        <failure message="expected [true] but found [false]" type="java.lang.AssertionError"><![CDATA[Given browser opened and in home page.......................................passed
+When user click slider control "1"..........................................passed
+Then user is switched to slider image "https://demo.nopcommerce.com/images/thumbs/0000079_banner_1.jpg".passed
+When user click slider control "2"..........................................passed
+Then user is switched to slider image "https://demo.nopcommerce.com/images/thumbs/0000080_banner_2.jpg".failed
+Then quitt..................................................................skipped
+
+StackTrace:
+java.lang.AssertionError: expected [true] but found [false]
+	at org.testng.Assert.fail(Assert.java:110)
+	at org.testng.Assert.failNotEquals(Assert.java:1413)
+	at org.testng.Assert.assertEqualsImpl(Assert.java:149)
+	at org.testng.Assert.assertEquals(Assert.java:131)
+	at org.testng.Assert.assertEquals(Assert.java:976)
+	at org.testng.Assert.assertEquals(Assert.java:1010)
+	at stepDefinitions.D06_homeSlidersStepDef.switchSlider(D06_homeSlidersStepDef.java:40)
+	at ✽.user is switched to slider image "https://demo.nopcommerce.com/images/thumbs/0000080_banner_2.jpg"(file:///F:/FWD/demonopcommerce/src/main/resources/features/F06_homeSliders.feature:10)
+]]></failure>
+    </testcase>
+    <testcase classname="user should click any icon to follow us and redirect fine to the selected platform" name="user click on all follow us icons" time="34.195">
+        <system-out><![CDATA[Given browser opened and redirected to home page............................passed
+When user click rss icon from the footer....................................passed
+Then user is redirected to rss then close...................................passed
+When user click facebook icon from the footer...............................passed
+Then user is redirected to facebook then close..............................passed
+When user click twitter icon from the footer................................passed
+Then user is redirected to twitter then close...............................passed
+When user click youtube icon from the footer................................passed
+Then user is redirected to youtube then quit................................passed
+]]></system-out>
+    </testcase>
+    <testcase classname="user can add product to wishlist successfully" name="user add product to wishlist from featured products and product categories" time="34.155">
+        <system-out><![CDATA[Given browser open to home page.............................................passed
+When user scroll down to featured products and click "Build your own computer" product.passed
+And user click on add to wishlist button from featured product details page.passed
+Then go back to home page...................................................passed
+When user click on digital downloads from product category top menu.........passed
+And click on "If You Wait (donation)" product...............................passed
+And user click on add to wishlist button from category product details page.passed
+Then go back to home page...................................................passed
+And user select wishlist....................................................passed
+And check "Build your own computer" and "If You Wait (donation)"  products are added to wish list and quit.passed
+]]></system-out>
+    </testcase>
+    <testcase classname="user can add product to cart successfully" name="user add product to cart from featured products and product categories" time="32.17">
+        <system-out><![CDATA[Given browser navigated to home page........................................passed
+When user scroll to featured products and click "Build your own computer" product.passed
+And user click on add to cart button from featured product details page.....passed
+Then navigate to home page..................................................passed
+When user click on digital downloads from product category menu.............passed
+And click "If You Wait (donation)" product..................................passed
+And user click on add to cart button from category product details page.....passed
+Then navigate to home page..................................................passed
+And user select shopping cart...............................................passed
+And check "Build your own computer" and "If You Wait (donation)"  products are added and quit.passed
+]]></system-out>
+    </testcase>
+</testsuite>
