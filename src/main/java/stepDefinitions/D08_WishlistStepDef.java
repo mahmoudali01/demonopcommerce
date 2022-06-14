@@ -13,29 +13,17 @@ import pages.P04_wishList;
 import pages.P05_shoppingCart;
 
 public class D08_WishlistStepDef {
-    P03_homePage page;
-    P05_shoppingCart cart;
-    P04_wishList wishlist;
-    WebDriver driver = null;
+    P03_homePage page = new P03_homePage();
+    P05_shoppingCart cart = new P05_shoppingCart();
+    P04_wishList wishlist = new P04_wishList();
 
-    @Given("browser open to home page")
-    public void navigationToHome() throws InterruptedException {
-        String chromePath = System.getProperty("user.dir") + "\\src\\main\\resources\\chromedriver.exe";
-        System.setProperty("webdriver.chrome.driver", chromePath);
-        driver = new ChromeDriver();
-        driver.manage().window().maximize();
-        driver.navigate().to("https://demo.nopcommerce.com/");
-        page =new P03_homePage(driver);
-        cart = new P05_shoppingCart(driver);
-        wishlist =new P04_wishList(driver);
-        Thread.sleep(1000);
-    }
+
     @When("^user scroll down to featured products and click \"(.*)\" product$")
     public void clickFeaturedProduct(String productName) throws InterruptedException {
         //cart.firstFeaturedProductPOM().click();
         String er = page.locateProducts(productName).getAttribute("href");
         page.locateProducts(productName).click();
-        String ar = driver.getCurrentUrl();
+        String ar = Hooks.driver.getCurrentUrl();
         Assert.assertEquals(ar.equals(er),true);
         Thread.sleep(1500);
     }
@@ -58,7 +46,7 @@ public class D08_WishlistStepDef {
 //     String ar = cart.flashProductAddedPOM().getText();
 //    System.out.println(ar);
 //     Assert.assertEquals(ar.contains(er),true);
-        driver.navigate().to("https://demo.nopcommerce.com/");
+        Hooks.driver.navigate().to("https://demo.nopcommerce.com/");
         Thread.sleep(1500);
     }
     @When("user click on digital downloads from product category top menu")
@@ -82,7 +70,7 @@ public class D08_WishlistStepDef {
         //cart.locateProductPOM(productName).click();
         String er =  page.locateProducts(productName).getAttribute("href");
         page.locateProducts(productName).click();
-        String ar = driver.getCurrentUrl();
+        String ar = Hooks.driver.getCurrentUrl();
         Assert.assertEquals(ar.equals(er),true);
         Thread.sleep(1500);
     }
@@ -92,14 +80,13 @@ public class D08_WishlistStepDef {
         wishlist.wishlistMenuBTNPOM().click();
         Thread.sleep(5000);
     }
-    @And("^check \"(.*)\" and \"(.*)\"  products are added to wish list and quit$")
+    @And("^check \"(.*)\" and \"(.*)\"  products are added to wish list$")
     public void checkProductsAndQuit(String product1, String product2) throws InterruptedException {
         String ar1 = page.locateProducts(product1).getText();
         String ar2 =  page.locateProducts(product2).getText();
         Assert.assertEquals(ar1.equals(product1),true);
         Assert.assertEquals(ar2.equals(product2),true);
         Thread.sleep(1000);
-        driver.quit();
     }
 
 

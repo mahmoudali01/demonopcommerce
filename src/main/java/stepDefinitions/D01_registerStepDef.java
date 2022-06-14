@@ -12,24 +12,24 @@ import pages.P01_register;
 import pages.P02_login;
 
 public class D01_registerStepDef {
-    WebDriver driver = null;
-    P01_register register;
-    @Given("user open browser and navigates to home page for registration")
-    public void userNavigationToHomePage() throws InterruptedException {
-        String chromePath = System.getProperty("user.dir") + "\\src\\main\\resources\\chromedriver.exe";
-        System.setProperty("webdriver.chrome.driver", chromePath);
-        driver = new ChromeDriver();
-        driver.manage().window().maximize();
-        driver.navigate().to("https://demo.nopcommerce.com/");
-
-        register =new  P01_register(driver);
-        Thread.sleep(1000);
-
-
-    }
-    @When("^user navigate to register page and enter first name \"(.*)\" last name \"(.*)\" email \"(.*)\" password \"(.*)\" confirm pass \"(.*)\"$")
-    public void fillRegistrationForm(String fname , String lname ,String email , String password ,String confirm) throws InterruptedException {
-        register.regisrationSteps(fname, lname,email,password,confirm);
+    WebDriver driver = Hooks.driver;
+    P01_register register = new  P01_register();
+//    @Given("user open browser and navigates to home page for registration")
+//    public void userNavigationToHomePage() throws InterruptedException {
+//        String chromePath = System.getProperty("user.dir") + "\\src\\main\\resources\\chromedriver.exe";
+//        System.setProperty("webdriver.chrome.driver", chromePath);
+//        driver = new ChromeDriver();
+//        driver.manage().window().maximize();
+//        driver.navigate().to("https://demo.nopcommerce.com/");
+//
+//        register =new  P01_register(driver);
+//        Thread.sleep(1000);
+//
+//
+//    }
+    @When("^user navigate to register page choose gender \"(.*)\" and enter first name \"(.*)\" last name \"(.*)\" email \"(.*)\" password \"(.*)\" confirm pass \"(.*)\"$")
+    public void fillRegistrationForm(String gender,String fname , String lname ,String email , String password ,String confirm) throws InterruptedException {
+        register.regisrationSteps(gender,fname, lname,email,password,confirm);
 
     }
     @And("click REGISTER")
@@ -45,7 +45,6 @@ public class D01_registerStepDef {
         System.out.println(ar);
         Assert.assertEquals(ar.contains(er),true);
         Thread.sleep(2000);
-        driver.quit();
     }
     @Then("wrong email message")
     public void errorWrongEmail() throws InterruptedException {
@@ -54,7 +53,6 @@ public class D01_registerStepDef {
         System.out.println(ar);
         Assert.assertEquals(ar.contains(er),true);
         Thread.sleep(2000);
-        driver.quit();
     }
     @Then("error the password should be at least 6 characters")
     public void shortPassword() throws InterruptedException {
@@ -63,7 +61,6 @@ public class D01_registerStepDef {
         System.out.println(ar);
         Assert.assertEquals(ar.contains(er),true);
         Thread.sleep(2000);
-        driver.quit();
     }
     @Then("error confirm password don't match the password")
     public void unMatch() throws InterruptedException {
@@ -72,14 +69,12 @@ public class D01_registerStepDef {
         System.out.println(ar);
         Assert.assertEquals(ar.contains(er),true);
         Thread.sleep(2000);
-        driver.quit();
     }
     @Then("registered successfully then click on logout")
 
     public void successRegister() throws InterruptedException {
         Assert.assertTrue(register.logoutBTN().isDisplayed());
         register.logoutBTN().click();
-        driver.quit();
     }
     @Then("error already registered email")
     public void alreadyRegistered() throws InterruptedException {
@@ -89,6 +84,5 @@ public class D01_registerStepDef {
         Assert.assertEquals(ar.contains(er),true);
         //  Assert.assertTrue(ar.contains(er));
         Thread.sleep(2000);
-        driver.quit();
     }
 }

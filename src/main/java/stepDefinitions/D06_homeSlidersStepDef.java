@@ -11,19 +11,9 @@ import pages.P02_login;
 import pages.P03_homePage;
 
 public class D06_homeSlidersStepDef {
-P03_homePage page;
-WebDriver driver = null;
+P03_homePage page=new P03_homePage();
 
-@Given("browser opened and in home page")
-    public void navigationToHome() throws InterruptedException {
-    String chromePath = System.getProperty("user.dir") + "\\src\\main\\resources\\chromedriver.exe";
-    System.setProperty("webdriver.chrome.driver", chromePath);
-    driver = new ChromeDriver();
-    driver.manage().window().maximize();
-    driver.navigate().to("https://demo.nopcommerce.com/");
-    page =new P03_homePage(driver);
-    Thread.sleep(1000);
-}
+
  @When("^user click slider control \"(.*)\"$")
     public void enterSliderController(String num) throws InterruptedException {
      String er = page.selectedSliderControlPom(num).getText();
@@ -47,10 +37,7 @@ WebDriver driver = null;
 //        System.out.println(ar);
 //        Assert.assertEquals(test.equals(sliderImgNum),true);
 //    }
-   @Then("quitt")
-    public void quit(){
-    driver.quit();
-   }
+
 
 //    @When("user click slider image")
 //    public void clickSlider()  {

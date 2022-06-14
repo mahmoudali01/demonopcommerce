@@ -11,22 +11,8 @@ import org.testng.Assert;
 import pages.P02_login;
 
 public class D02_loginStepDef {
-    WebDriver driver = null;
-    P02_login login;
+    P02_login login = new P02_login();
 
-    @Given("user open browser and navigates to home page")
-    public void userNavigationToHomePage() throws InterruptedException {
-        String chromePath = System.getProperty("user.dir") + "\\src\\main\\resources\\chromedriver.exe";
-        System.setProperty("webdriver.chrome.driver", chromePath);
-        driver = new ChromeDriver();
-        driver.manage().window().maximize();
-        driver.navigate().to("https://demo.nopcommerce.com/");
-
-        login =new P02_login(driver);
-        Thread.sleep(1000);
-
-
-    }
     @When("^user navigate to login page and enter email \"(.*)\" password \"(.*)\"$")
     public void enterValidCredentials(String email,String password) throws InterruptedException {
         login.loginSteps(email, password);
@@ -50,7 +36,6 @@ public class D02_loginStepDef {
         Assert.assertEquals(ar.contains(er),true);
         //  Assert.assertTrue(ar.contains(er));
         Thread.sleep(2000);
-        driver.quit();
     }
     @Then("error message wrong email")
     public void wrong_Email() throws InterruptedException {
@@ -61,7 +46,6 @@ public class D02_loginStepDef {
         Assert.assertEquals(ar.contains(er),true);
         //Assert.assertTrue(ar.contains(er));
         Thread.sleep(2000);
-        driver.quit();
 
     }
     @Then("error message please enter email")
@@ -73,7 +57,6 @@ public class D02_loginStepDef {
         Assert.assertEquals(ar.contains(er),true);
         //Assert.assertTrue(ar.contains(er));
         Thread.sleep(2000);
-        driver.quit();
 
     }
 }

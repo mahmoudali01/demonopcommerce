@@ -128,39 +128,20 @@ package stepDefinitions;
         import java.util.ArrayList;
 
 public class D09_ShoppingCartStepDef {
-  P03_homePage page;
-  P05_shoppingCart cart;
+  P03_homePage page = new P03_homePage();
+  P05_shoppingCart cart = new P05_shoppingCart();
   static int  expected =0;
-  WebDriver driver = null;
-  @Given("browser navigated to home page")
-  public void navigationToHome() throws InterruptedException {
-    String chromePath = System.getProperty("user.dir") + "\\src\\main\\resources\\chromedriver.exe";
-    System.setProperty("webdriver.chrome.driver", chromePath);
-    driver = new ChromeDriver();
-    driver.manage().window().maximize();
-    driver.navigate().to("https://demo.nopcommerce.com/");
-    page =new P03_homePage(driver);
-    cart = new P05_shoppingCart(driver);
-    Thread.sleep(1000);
-  }
+
   @When("^user scroll to featured products and click \"(.*)\" product$")
   public void clickFeaturedFirstProduct(String productName) throws InterruptedException {
     //cart.firstFeaturedProductPOM().click();
     String er = page.locateProducts(productName).getAttribute("href");
     page.locateProducts(productName).click();
-    String ar = driver.getCurrentUrl();
+    String ar = Hooks.driver.getCurrentUrl();
     Assert.assertEquals(ar.equals(er),true);
     Thread.sleep(500);
   }
-  //  @Then("user is redirected to that product details page")
-//  public void redirectedToDetailsPage() throws InterruptedException {
-//    //cart.featuredProductBTNPOM().click();
-//    String er = cart.locateProductPOM().getAttribute("href");
-//    String ar = driver.getCurrentUrl();
-//   Assert.assertEquals(ar.equals(er),true);
-//    Thread.sleep(1500);
-//
-//  }
+
   @And("user click on add to cart button from featured product details page")
   public void featuredProductDetailsPageAddCartBTN() throws InterruptedException {
     Select selectProcessor = new Select(cart.processorDDPOM());
@@ -174,31 +155,21 @@ public class D09_ShoppingCartStepDef {
     Thread.sleep(1500);
 
     cart.clickedProductAddToCartBTNPOM().click();
-//    String count=page.cartCountPOM().getText();
-//    char[] ch = count.toCharArray();
-//    int  actual =Integer.parseInt(String.valueOf(ch[1]));
-//    Assert.assertEquals(actual,1);
+
     Thread.sleep(500);
 
   }
   @And("user click on add to cart button from category product details page")
   public void categoryProductDetailsPageAddCartBTN() throws InterruptedException {
     cart.clickedProductAddToCartBTNPOM().click();
-//    String count=page.cartCountPOM().getText();
-//    char[] ch = count.toCharArray();
-//    int  actual =Integer.parseInt(String.valueOf(ch[1]));
-//    Assert.assertEquals(actual,2);
+
     Thread.sleep(500);
 
   }
   @Then("navigate to home page")
   public void addedSuccessfully() throws InterruptedException {
-//    expected++;
-//    String count=page.cartCountPOM().getText();
-//    char[] ch = count.toCharArray();
-//    int  actual =Integer.parseInt(String.valueOf(ch[1]));
-//    Assert.assertEquals(actual,expected);
-    driver.navigate().to("https://demo.nopcommerce.com/");
+
+    Hooks.driver.navigate().to("https://demo.nopcommerce.com/");
     Thread.sleep(1500);
   }
   @When("user click on digital downloads from product category menu")
@@ -207,11 +178,10 @@ public class D09_ShoppingCartStepDef {
   }
   @And("^click \"(.*)\" product$")
   public void downloadsFirstProduct(String productName) throws InterruptedException {
-    // cart.firstCategoryProductPOM().click();
-    //cart.locateProductPOM(productName).click();
+
     String er = page.locateProducts(productName).getAttribute("href");
     page.locateProducts(productName).click();
-    String ar = driver.getCurrentUrl();
+    String ar = Hooks.driver.getCurrentUrl();
     Assert.assertEquals(ar.equals(er),true);
     Thread.sleep(1500);
   }
@@ -220,14 +190,13 @@ public class D09_ShoppingCartStepDef {
     cart.cartMenuBTNPOM().click();
     Thread.sleep(5000);
   }
-  @And("^check \"(.*)\" and \"(.*)\"  products are added and quit$")
+  @And("^check \"(.*)\" and \"(.*)\"  products are added$")
   public void checkAddedProductsAndQuit(String product1, String product2) throws InterruptedException {
     String ar1 = page.locateProducts(product1).getText();
     String ar2 =  page.locateProducts(product2).getText();
     Assert.assertEquals(ar1.equals(product1),true);
     Assert.assertEquals(ar2.equals(product2),true);
     Thread.sleep(1000);
-    driver.quit();
   }
 
 

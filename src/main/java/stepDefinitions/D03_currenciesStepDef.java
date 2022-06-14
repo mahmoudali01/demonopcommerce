@@ -14,25 +14,12 @@ import pages.P03_homePage;
 
 
 public class D03_currenciesStepDef {
-    WebDriver driver = null;
-    P01_register register;
-    P02_login login;
-    P03_homePage page;
 
-    @Given("user open browser then navigate to home page")
-    public void userNavigationToHomePage() throws InterruptedException {
-        String chromePath = System.getProperty("user.dir") + "\\src\\main\\resources\\chromedriver.exe";
-        System.setProperty("webdriver.chrome.driver", chromePath);
-        driver = new ChromeDriver();
-        driver.manage().window().maximize();
-        driver.navigate().to("https://demo.nopcommerce.com/");
-        page =new P03_homePage(driver);
-        login = new P02_login(driver);
-        register = new P01_register(driver);
+    P03_homePage  page =new P03_homePage();
+    P02_login login = new P02_login();
+    P01_register register = new P01_register();
 
-        Thread.sleep(1000);
 
-    }
 
     @When("^user select \"(.*)\" then the featured product prices is switched to Euro$")
     public void selectEuro(String euro) throws InterruptedException {
@@ -51,7 +38,6 @@ public class D03_currenciesStepDef {
         String er = "$";
         String ar = page.pricePOM().getText();
         Assert.assertEquals(ar.contains(er),true);
-        driver.quit();
         Thread.sleep(2000);
 
 
@@ -69,9 +55,9 @@ public class D03_currenciesStepDef {
     public void chooseRegisterFromTopMenu() throws InterruptedException {
     register.registerMenuBTN().click();
     }
-    @And("^enter first name \"(.*)\" last name \"(.*)\" email \"(.*)\" password \"(.*)\" confirm pass \"(.*)\"$")
-    public void userFillRegistrationForm(String fname , String lname ,String email , String password ,String confirm) throws InterruptedException {
-   register.regisrationSteps(fname, lname, email, password, confirm);
+    @And("^enter gender \"(.*)\" first name \"(.*)\" last name \"(.*)\" email \"(.*)\" password \"(.*)\" confirm pass \"(.*)\"$")
+    public void userFillRegistrationForm(String gender,String fname , String lname ,String email , String password ,String confirm) throws InterruptedException {
+   register.regisrationSteps(gender,fname, lname, email, password, confirm);
 
     }
     @And("press REGISTER")

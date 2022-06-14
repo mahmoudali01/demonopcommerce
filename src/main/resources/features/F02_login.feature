@@ -1,7 +1,5 @@
 @regression
 Feature: user should be able to login successfully
-  Background:
-    Given user open browser and navigates to home page
 
   Scenario: user enter no data
     When user navigate to login page and enter email "" password ""
@@ -19,6 +17,6 @@ Feature: user should be able to login successfully
     Then error message wrong email
 
   Scenario: user login with valid email and password
-    When user navigate to login page and enter email "mahmoudali@example.com" password "password"
+    When user navigate to login page and enter email "mahmoudali1@example.com" password "password"
     And user click on login button
     Then user log in successfully and redirected to homepage

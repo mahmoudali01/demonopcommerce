@@ -4,39 +4,40 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import stepDefinitions.Hooks;
 
 public class P02_login {
-    private WebDriver driver;
-    public P02_login(WebDriver driver) {
-        this.driver = driver;
-    }
+   // private WebDriver driver;
+//    public P02_login(WebDriver driver) {
+//        this.driver = driver;
+//    }
 
     public WebElement usernameElementPOM(){
-        return this.driver.findElement(By.id("Email"));
+        return Hooks.driver.findElement(By.id("Email"));
     }
     public WebElement passElementPOM(){
 
-        return this.driver.findElement(By.id("Password"));
+        return Hooks.driver.findElement(By.id("Password"));
     }
     public WebElement flashMsgWrongEmail(){
 
-        return this.driver.findElement(By.id("Email-error"));
+        return Hooks.driver.findElement(By.id("Email-error"));
     }
     public WebElement flashMsgEnterEmail(){
-        return this.driver.findElement(By.id("Email-error"));
+        return Hooks.driver.findElement(By.id("Email-error"));
     }
     public WebElement flashMsgFailLogin(){
 
-        return this.driver.findElement(By.className("message-error"));
+        return Hooks.driver.findElement(By.className("message-error"));
     }
 
     public WebElement loginMenuBTN(){
 
-        return this.driver.findElement(By.className("ico-login"));
+        return Hooks.driver.findElement(By.className("ico-login"));
     }
     public WebElement logoutBTN(){
 
-        return this.driver.findElement(By.className("ico-logout"));
+        return Hooks.driver.findElement(By.className("ico-logout"));
     }
 
     public void loginSteps(String email , String password) throws InterruptedException {

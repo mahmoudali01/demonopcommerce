@@ -14,23 +14,12 @@ import pages.P02_login;
 import pages.P03_homePage;
 
 public class D04_searchStepDef {
-    WebDriver driver = null;
-    P01_register register;
-    P02_login login;
-    P03_homePage page;
+    P03_homePage  page =new P03_homePage();
+    P02_login login = new P02_login();
+    P01_register register = new P01_register();
 
-    @Given("open browser and go to home page")
-    public void userNavigationToHomePage() throws InterruptedException {
-        String chromePath = System.getProperty("user.dir") + "\\src\\main\\resources\\chromedriver.exe";
-        System.setProperty("webdriver.chrome.driver", chromePath);
-        driver = new ChromeDriver();
-        driver.manage().window().maximize();
-        driver.navigate().to("https://demo.nopcommerce.com/");
-        page =new P03_homePage(driver);
-        login = new P02_login(driver);
-        register = new P01_register(driver);
-        Thread.sleep(1000);
-    }
+
+
     @When("^user enter invalid product name as \"(.*)\"$")
     public void searchInvalidProduct(String name) throws InterruptedException {
         page.searchProduct(name);
@@ -78,9 +67,9 @@ public class D04_searchStepDef {
     public void clickRegisterMenuBTN() throws InterruptedException {
         register.registerMenuBTN().sendKeys(Keys.ENTER);
     }
-    @And("^register \"(.*)\" \"(.*)\" \"(.*)\" \"(.*)\" \"(.*)\"$")
-    public void register(String fname , String lname ,String email , String password ,String confirm) throws InterruptedException {
-        register.regisrationSteps(fname, lname, email, password, confirm);
+    @And("^register \"(.*)\" \"(.*)\" \"(.*)\" \"(.*)\" \"(.*)\" \"(.*)\"$")
+    public void register(String gender,String fname , String lname ,String email , String password ,String confirm) throws InterruptedException {
+        register.regisrationSteps(gender,fname, lname, email, password, confirm);
         Thread.sleep(2000);
     }
 
@@ -105,11 +94,7 @@ public class D04_searchStepDef {
     }
     @And("roll back to home")
     public void rollBack(){
-        driver.navigate().to("https://demo.nopcommerce.com/");
-    }
-    @And("quit the browser")
-    public void quitBrowser(){
-        driver.quit();
+        Hooks.driver.navigate().to("https://demo.nopcommerce.com/");
     }
 
 }
